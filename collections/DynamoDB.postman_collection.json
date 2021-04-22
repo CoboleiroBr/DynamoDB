@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "927608e9-6b10-4307-8aea-33eb336b990e",
+		"name": "DynamoDB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Listar Bandas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/v1/banda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar por Nome",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/v1/banda/nome/Metallica",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda",
+						"nome",
+						"Metallica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar por Nome - PartiQL",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/v1/banda/partiQL/nome/Nirvana",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda",
+						"partiQL",
+						"nome",
+						"Nirvana"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar por Nome e Genero",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/v1/banda/nome/Luxuria/genero/Rock",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda",
+						"nome",
+						"Luxuria",
+						"genero",
+						"Rock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar por Ano Lancamento",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/v1/banda/ano_lancamento/1995",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda",
+						"ano_lancamento",
+						"1995"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar por Range Ano Lancamento Copy",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/v1/banda/ano_lancamento/inicial/1990/final/2020",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda",
+						"ano_lancamento",
+						"inicial",
+						"1990",
+						"final",
+						"2020"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Incluir Banda",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Iron Maiden\",\r\n    \"genero_musical\": \"Heavy Metal\",\r\n    \"sub_generos_musicais\": [\r\n        \"Clássico\"\r\n    ],\r\n    \"ano_lancamento\": 1980,\r\n    \"albuns\": [\r\n        {\r\n            \"nome_album\": \"Iron Maiden\",\r\n            \"musicas\": [\r\n                {\r\n                    \"nome_musica\": \"Transylvania\"\r\n                },\r\n                {\r\n                    \"nome_musica\": \"Running Free\"\r\n                },\r\n                {\r\n                    \"nome_musica\": \"Charlotte the Harlot\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"nome_album\": \"Killers\",\r\n            \"musicas\": [\r\n                {\r\n                    \"nome_musica\": \"Wrathchild\"\r\n                },\r\n                {\r\n                    \"nome_musica\": \"Murders in the Rue Morgue\"\r\n                }\r\n            ]\r\n        }    \r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/v1/banda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alterar Banda",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Alice In Chains\",\r\n    \"genero_musical\": \"Rock\",\r\n    \"ano_lancamento\": 1992\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/v1/banda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Nirvana\",\r\n    \"genero_musical\": \"Rock\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/v1/banda",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"v1",
+						"banda"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

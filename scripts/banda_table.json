@@ -1,0 +1,49 @@
+{
+  "TableName": "Banda",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "nome",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "generoMusical",
+      "AttributeType": "S"
+    },
+    {
+      "AttributeName": "anoLancamento",
+      "AttributeType": "N"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "nome",
+      "KeyType": "HASH"
+    },
+    {
+      "AttributeName": "generoMusical",
+      "KeyType": "RANGE"
+    }
+  ],
+  "GlobalSecondaryIndexes": [
+    {
+      "IndexName": "anoLancamento_idx",
+      "Projection": {
+        "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+        "WriteCapacityUnits": 5,
+        "ReadCapacityUnits": 10
+      },
+      "KeySchema": [
+        {
+          "KeyType": "HASH",
+          "AttributeName": "anoLancamento"
+        }
+      ]
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}
